@@ -126,7 +126,9 @@ const graduates = [
 /* Request 1: Create a new array called universities that contains all the universities in the graduates array.
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
-console.log("<------------------Array Methods---------------------------------->")
+console.log(
+  '<------------------Array Methods---------------------------------->'
+);
 
 const universities = [];
 graduates.forEach(function(grad) {
@@ -149,7 +151,7 @@ console.log(contactInfo);
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
 graduates.filter(function(grad) {
-  if (grad.university.match("Uni")) {
+  if (grad.university.match('Uni')) {
     uni.push(grad);
   }
 });
@@ -228,11 +230,15 @@ zooAnimals = [
 The zoo wants to display both the scientific name and the animal name in front of the habitats.  Return an array with only the animal and scientific names in it.  The individual values in the array should look like this "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-console.log("<----------Advanced Array Methods-------------------------------------------------------->")
+console.log(
+  '<----------Advanced Array Methods-------------------------------------------------------->'
+);
 
 const animalNames = [];
 zooAnimals.forEach(function(name) {
-  animalNames.push(" Name: " + name.animal_name + ' ' + "Scientific: " + name.scientific_name);
+  animalNames.push(
+    ' Name: ' + name.animal_name + ' ' + 'Scientific: ' + name.scientific_name
+  );
 });
 
 console.log(animalNames);
@@ -245,7 +251,6 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 
 const lowerCase = [];
 
-
 zooAnimals.map(function(item) {
   lowerCase.push(item.animal_name.toLowerCase());
 });
@@ -257,14 +262,11 @@ The zoos are concenred about animals with a lower population count. Find out whi
 
 */
 const lowerPopulation = [];
-  zooAnimals.filter(function (item){
-
-  if (item.population < 5 ) {
-      lowerPopulation.push(item)
-
+zooAnimals.filter(function(item) {
+  if (item.population < 5) {
+    lowerPopulation.push(item);
   }
-  });
-
+});
 
 console.log(lowerPopulation);
 
@@ -273,7 +275,7 @@ console.log(lowerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = zooAnimals.reduce((popTotal, popAmount) => {
+const populationTotal = zooAnimals.reduce( function (popTotal, popAmount) {
   return popTotal + popAmount.population;
 }, 0);
 console.log(populationTotal);
@@ -283,3 +285,76 @@ console.log(populationTotal);
 Stretch: If you haven't already, convert your array method callbacks into arrow functions.
 
 */
+
+console.log(
+  '<------------------Arrow Functions Part 1----------------------------->'
+);
+
+//------------------------1
+
+const universities2 = [];
+graduates.forEach(grad => {
+  universities2.push(grad.first_name);
+});
+console.log(universities2.sort());
+
+//------------------------2
+
+const contactInfo2 = [];
+graduates.map(grad => {
+  contactInfo2.push(grad.first_name + ' ' + grad.email);
+});
+console.log(contactInfo2);
+
+//-----------------------3
+
+const uni2 = [];
+graduates.filter((grad) => {
+  if (grad.university.match('Uni')) {
+    uni2.push(grad);
+  }
+});
+
+console.log(uni2);
+
+
+
+
+console.log(
+  '<------------------Arrow Functions Part 2----------------------------->'
+);
+
+//--------------------------1
+
+const animalNames1 = [];
+zooAnimals.forEach(name => {
+  animalNames1.push(
+    ' Name: ' + name.animal_name + ' ' + 'Scientific: ' + name.scientific_name
+  );
+});
+
+console.log(animalNames1);
+
+//------------------------2
+
+const lowerCase2 = [];
+
+zooAnimals.map(item => {
+  lowerCase2.push(item.animal_name.toLowerCase());
+});
+console.log(lowerCase2);
+
+//---------------------3
+const lowerPopulation2 = [];
+zooAnimals.filter(item => {
+  if (item.population < 5) {
+    lowerPopulation2.push(item);
+  }
+});
+
+//-----------------------4
+console.log(lowerPopulation2);
+const populationTotal2 = zooAnimals.reduce((popTotal, popAmount) => {
+  return popTotal + popAmount.population;
+}, 0);
+console.log(populationTotal2);
